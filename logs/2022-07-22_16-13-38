@@ -1,0 +1,9 @@
+[2022-07-22 16:13:40,345]^;INFO^;9^;main.py^;get_distance()^;The file execution has been started.
+[2022-07-22 16:13:40,345]^;INFO^;16^;distance_kms.py^;parse_kml_data()^;task_2_sensor.kml reading and parsing commenced.
+[2022-07-22 16:13:40,361]^;INFO^;20^;distance_kms.py^;parse_kml_data()^;The file execution has been completed successfully.
+[2022-07-22 16:13:40,361]^;INFO^;32^;distance_kms.py^;get_coord_details()^;The list of coordinates are generated.
+[2022-07-22 16:13:40,361]^;INFO^;46^;distance_kms.py^;get_dataframe_and_filter_data()^;Filtering has been performed successfully.
+[2022-07-22 16:13:40,361]^;INFO^;70^;distance_kms.py^;get_df_with_coord_names()^;Final dataframe obatined
+[2022-07-22 16:13:40,376]^;INFO^;89^;distance_kms.py^;get_row_shifted_df()^;The inputs for calculating distance is calculated.
+[2022-07-22 16:13:40,376]^;INFO^;112^;distance_kms.py^;calculate_distance()^;The distance between 2 consective coordinate points are calculated.
+[2022-07-22 16:13:40,376]^;INFO^;16^;main.py^;get_distance()^;The file execution has been completed.
