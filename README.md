@@ -15,7 +15,9 @@ The provided KML map data describes the route of a vehicle. Since these are reco
 # Filtering Logic
 ```
 The sensors records the position of the vehicle continuously by storing coordinates at each position. It is observed that the distance between two cordinates approximately lies between  0-0.05km (statistical analysis: histogram ). Any distance more than 50m considered as outliers or incorrect data points.
-image.png
+
+![Getting Started](threshold_value.png)
+
 The file also containes a number of duplicate points which has no or little influence on the final distance measure and hence can be removed to optimise the calculation time.
 ```
 
@@ -25,7 +27,7 @@ The file also containes a number of duplicate points which has no or little infl
 ```
 - The requirements.txt file contains all the required dependencies for this project.
 - python==3.70
-- IDE used VS code
+- IDE used VS code(or your prefferred IDE)
 ```
 
 ## Environment setup
