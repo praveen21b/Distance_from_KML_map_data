@@ -1,11 +1,10 @@
-import logging
 from pickletools import long1
 import bs4
 import pandas as pd
 import numpy as np
 from bs4 import BeautifulSoup as bs
 from dist_exception import DistanceException
-#from dist_log import logging
+from dist_log import logging
 import os,sys
 import lxml
 import matplotlib.pyplot as plt
@@ -36,12 +35,14 @@ def get_coord_details(parsed_page:bs)->list:
     except Exception as e:
         raise DistanceException(e,sys) from e 
 
+# improves the computation speed
 def get_dataframe_and_filter_data(co_list:list) -> pd.DataFrame:
     """ This functions coverts list of cordinate tuple into dataframe 
         and removes duplicate value.
     """
     try:
         df = pd.DataFrame({'coordinates':co_list})
+        #len(df.value_counts()) # checked for duplicates
         df.drop_duplicates(inplace=True, ignore_index=True)
         logging.info(f'Filtering has been performed successfully.')
         return df
