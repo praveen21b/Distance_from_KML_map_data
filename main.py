@@ -15,7 +15,7 @@ def get_distance(file)->float:
         df['distance_km'] = calculate_distance(lon1,lat1,lon2,lat2)
         logging.info(f'The file execution has been completed.')
         #return df.fillna(0)['distance_km'].sum() ## has outliers
-        threshold_distnace = 0.05 #km assuming distance between 2 coord points is 50m
+        threshold_distnace = 0.06 #km assuming distance between 2 coord points is ~50m-60m
         return df['distance_km'][df['distance_km'].sort_values(ascending=False) < threshold_distnace].sum()
     except Exception as e:
         raise DistanceException(e,sys) from e
