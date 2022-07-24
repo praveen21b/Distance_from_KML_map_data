@@ -2,7 +2,7 @@ from pkg_resources import get_default_cache
 from dist_exception import DistanceException
 from dist_log import logging
 import sys, os
-from distance_kms import calculate_distance, get_dataframe_and_filter_data, get_df_with_coord_names, get_row_shifted_df, parse_kml_data,get_coord_details
+from distance_kms import calculate_distance, get_dataframe_and_filter_data, get_df_with_coord_names, get_row_shifted_df, parse_kml_data,get_coord_details, stat_analysis
 
 def get_distance(file)->float:
     try:
@@ -15,8 +15,9 @@ def get_distance(file)->float:
         df['distance_km'] = calculate_distance(lon1,lat1,lon2,lat2)
         logging.info(f'The file execution has been completed.')
         #return df.fillna(0)['distance_km'].sum() ## has outliers
-        threshold_distnace = 0.06 #km assuming distance between 2 coord points is ~50m-60m
-        return df['distance_km'][df['distance_km'].sort_values(ascending=False) < threshold_distnace].sum()
+        threshold_distnace = 0.05 #km assuming distance between 2 coord points is ~50m-60m
+        #return df['distance_km'][df['distance_km'].sort_values(ascending=False) < threshold_distnace].sum()
+        return stat_analysis(df['distance_km'])
     except Exception as e:
         raise DistanceException(e,sys) from e
 

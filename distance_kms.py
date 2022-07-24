@@ -117,3 +117,27 @@ def calculate_distance(lon1:pd.DataFrame, lat1:pd.DataFrame,
         raise DistanceException(e,sys) from e
 
 
+def stat_analysis(df):
+    try:
+        # empirical rule
+        #avg_dist = df.mean()
+        #std_dev = df.std()
+        #upper_limit = avg_dist + (3*std_dev)
+        #print(upper_limit)
+        #lower_limit = avg_dist - (3*std_dev)
+
+        # iqr method to remove putliers
+        percentile25 = df.quantile(0.25)
+        percentile75 = df.quantile(0.75)
+
+        iqr = percentile75 - percentile25
+
+        upper_limit = percentile75 + 1.5 * iqr
+        lower_limit = percentile25 - 1.5 * iqr
+        return df[(df < upper_limit)|(df < lower_limit)].sum()
+
+    except Exception as e:
+        raise DistanceException(e,sys) from e
+
+
+

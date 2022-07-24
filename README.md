@@ -14,11 +14,19 @@ The provided KML map data describes the route of a vehicle. Since these are reco
 
 # Filtering Logic
 ```
-The sensors records the position of the vehicle continuously by storing coordinates at each position. It is observed that the distance between two cordinates approximately lies between  0-0.05km (statistical analysis: histogram ). Any distance more than 50m considered as outliers or incorrect data points.
+The sensors records the position of the vehicle continuously by storing coordinates at each position. Since these measurements contains incorrect data which are outliers. The outliers can be find and removed using various techniques. z-score treatment, percentile technique, using empirical statistical approach, and Inter Quartile Range (IQR) technique are a few to name.
+
+The distance points follow a skewed distribution, hence IQR proximity rule used to remove outliers.
+
+The data points which fall below Q1 – 1.5 IQR or above Q3 + 1.5 IQR are outliers.
+
+where Q1 and Q3 are the 25th and 75th percentile of the dataset respectively, and IQR represents the inter-quartile range and given by Q3 – Q1.
+
 
 The file also containes a number of duplicate points which has no or little influence on the final distance measure and hence can be removed to optimise the calculation time.
 ```
 ![Getting Started](threshold_value.png)
+![Getting Started](boxplot.png)
 
 # Code
 
